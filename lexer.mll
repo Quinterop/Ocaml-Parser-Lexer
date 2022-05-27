@@ -4,7 +4,7 @@ open Token
 
 let symbol = ['a'-'z' 'A'-'Z' '0'-'9']
 
-let space =[' ''\n''\t']
+let space =[' ''\n''\t']+
 
 
 
