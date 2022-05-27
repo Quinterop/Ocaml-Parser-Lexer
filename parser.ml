@@ -10,7 +10,7 @@ module MenhirBasics = struct
   type token = 
     | TRANSITIONS
     | SYMBOL of (
-# 7 "parser.mly"
+# 6 "parser.mly"
        (Ast.lettre)
 # 16 "parser.ml"
   )
@@ -32,9 +32,8 @@ include MenhirBasics
 # 1 "parser.mly"
   
 open Ast
-open Token
 
-# 38 "parser.ml"
+# 37 "parser.ml"
 
 type ('s, 'r) _menhir_state = 
   | MenhirState01 : ('s, _menhir_box_axiome) _menhir_state
@@ -104,16 +103,16 @@ and ('s, 'r) _menhir_cell1_LPARE =
 
 and ('s, 'r) _menhir_cell1_SYMBOL = 
   | MenhirCell1_SYMBOL of 's * ('s, 'r) _menhir_state * (
-# 7 "parser.mly"
+# 6 "parser.mly"
        (Ast.lettre)
-# 110 "parser.ml"
+# 109 "parser.ml"
 )
 
 and 's _menhir_cell0_SYMBOL = 
   | MenhirCell0_SYMBOL of 's * (
-# 7 "parser.mly"
+# 6 "parser.mly"
        (Ast.lettre)
-# 117 "parser.ml"
+# 116 "parser.ml"
 )
 
 and _menhir_box_axiome = 
@@ -122,161 +121,161 @@ and _menhir_box_axiome =
 let _menhir_action_01 =
   fun d t ->
     (
-# 15 "parser.mly"
+# 14 "parser.mly"
                                           ((d,t))
-# 128 "parser.ml"
+# 127 "parser.ml"
      : (Ast.automate))
 
 let _menhir_action_02 =
   fun a ->
     (
-# 13 "parser.mly"
+# 12 "parser.mly"
                           (a)
-# 136 "parser.ml"
+# 135 "parser.ml"
      : (Ast.automate))
 
 let _menhir_action_03 =
   fun i ii is s ss ->
     (
-# 23 "parser.mly"
+# 22 "parser.mly"
                                                                                                 ((i, s, ss, ii, is))
-# 144 "parser.ml"
+# 143 "parser.ml"
      : (Ast.declarations))
 
 let _menhir_action_04 =
   fun is ->
     (
-# 36 "parser.mly"
+# 35 "parser.mly"
                                        ((is))
-# 152 "parser.ml"
+# 151 "parser.ml"
      : (Ast.lettre))
 
 let _menhir_action_05 =
   fun i ->
     (
-# 34 "parser.mly"
+# 33 "parser.mly"
                                       ((i))
-# 160 "parser.ml"
+# 159 "parser.ml"
      : (Ast.lettre))
 
 let _menhir_action_06 =
   fun i ->
     (
-# 25 "parser.mly"
+# 24 "parser.mly"
                                                   ((i))
-# 168 "parser.ml"
+# 167 "parser.ml"
      : (Ast.inputSymbols))
 
 let _menhir_action_07 =
   fun l ->
     (
-# 42 "parser.mly"
+# 41 "parser.mly"
                         ((Some l))
-# 176 "parser.ml"
+# 175 "parser.ml"
      : (Ast.lettreOuVide))
 
 let _menhir_action_08 =
   fun () ->
     (
-# 43 "parser.mly"
+# 42 "parser.mly"
   ((None))
-# 184 "parser.ml"
+# 183 "parser.ml"
      : (Ast.lettreOuVide))
 
 let _menhir_action_09 =
   fun l s ->
     (
-# 20 "parser.mly"
+# 19 "parser.mly"
                                                       ((l::s))
-# 192 "parser.ml"
+# 191 "parser.ml"
      : (Ast.lettre list))
 
 let _menhir_action_10 =
   fun t ->
     (
-# 21 "parser.mly"
+# 20 "parser.mly"
             (([t]))
-# 200 "parser.ml"
+# 199 "parser.ml"
      : (Ast.lettre list))
 
 let _menhir_action_11 =
   fun s ->
     (
-# 17 "parser.mly"
+# 16 "parser.mly"
                         (Some (s))
-# 208 "parser.ml"
+# 207 "parser.ml"
      : (Ast.stack))
 
 let _menhir_action_12 =
   fun () ->
     (
-# 18 "parser.mly"
+# 17 "parser.mly"
   (None)
-# 216 "parser.ml"
+# 215 "parser.ml"
      : (Ast.stack))
 
 let _menhir_action_13 =
   fun s ->
     (
-# 27 "parser.mly"
+# 26 "parser.mly"
                                                   ((s))
-# 224 "parser.ml"
+# 223 "parser.ml"
      : (Ast.inputSymbols))
 
 let _menhir_action_14 =
   fun ss ->
     (
-# 29 "parser.mly"
+# 28 "parser.mly"
                                        ((ss))
-# 232 "parser.ml"
+# 231 "parser.ml"
      : (Ast.inputSymbols))
 
 let _menhir_action_15 =
   fun l ->
     (
-# 31 "parser.mly"
+# 30 "parser.mly"
                                (([l]))
-# 240 "parser.ml"
+# 239 "parser.ml"
      : (Ast.inputSymbols))
 
 let _menhir_action_16 =
   fun s t ->
     (
-# 32 "parser.mly"
+# 31 "parser.mly"
                                          ((t::s))
-# 248 "parser.ml"
+# 247 "parser.ml"
      : (Ast.inputSymbols))
 
 let _menhir_action_17 =
   fun t tt ->
     (
-# 47 "parser.mly"
+# 46 "parser.mly"
                                         ((t::tt))
-# 256 "parser.ml"
+# 255 "parser.ml"
      : (Ast.transitions))
 
 let _menhir_action_18 =
   fun () ->
     (
-# 48 "parser.mly"
+# 47 "parser.mly"
   (([]))
-# 264 "parser.ml"
+# 263 "parser.ml"
      : (Ast.transitions))
 
 let _menhir_action_19 =
   fun s t u v z ->
     (
-# 38 "parser.mly"
+# 37 "parser.mly"
                                                                                                             ((s,t,u,z,v))
-# 272 "parser.ml"
+# 271 "parser.ml"
      : (Ast.transition))
 
 let _menhir_action_20 =
   fun t ->
     (
-# 45 "parser.mly"
+# 44 "parser.mly"
                                       ((t))
-# 280 "parser.ml"
+# 279 "parser.ml"
      : (Ast.transitions))
 
 let _menhir_print_token : token -> string =

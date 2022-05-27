@@ -1,14 +1,16 @@
+open Parser
+open Lexer
+(*
+let lexbuf = Lexing.from_channel (open_in (Sys.argv.(1)))
 
-let syntaxCheck entree =
-  (*FONCTION TODO*)
-  true 
-;;
+let auto = Parser.axiome Lexer.next_token lexbuf
+
+*)
+(*let testMot mot *)
 
 
-
-(*exemple cours 2*)
-let ch = open_in (Sys.argv.(1)) in
-let lb = Lexing.from_channel ch in
+let ch = open_in (Sys.argv.(1)) in;
+let lb = Lexing.from_channel ch
 try
   while true do
     let t = Lexer.next_token lb
@@ -19,6 +21,8 @@ try
 with _ ->
   Printf.printf "Erreur lexicale\n"
 ;;
+
+
 (*
 let tryWord word automat = 
   match automat with
@@ -26,16 +30,16 @@ let tryWord word automat =
   match b with
   | Vide() -> failwith "pas de transition"
   | Suite(t,l) -> let (a,b,c,d,e) = t in if 
+    
   
   
-
-
-
-
-let lexbuf = Lexing.from_channel stdin 
-
-let ast = Parser.input Lexer.main lexbuf 
-
-let _ = Printf.printf "Parse:\n%s\n" (Ast.as_string ast)
+  
+  
+  
+  let lexbuf = Lexing.from_channel stdin 
+  
+  let ast = Parser.input Lexer.main lexbuf 
+  
+  let _ = Printf.printf "Parse:\n%s\n" (Ast.as_string ast)
   
   *)

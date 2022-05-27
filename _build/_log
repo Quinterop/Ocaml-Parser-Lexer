@@ -1,2 +1,10 @@
 ### Starting build.
-# Compilation successful.
+# Target: main.ml.depends, tags: { extension:ml, file:main.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules main.ml > main.ml.depends
++ /usr/bin/ocamldep.opt -modules main.ml > main.ml.depends
+File "main.ml", line 12, characters 32-34:
+12 | let ch = open_in (Sys.argv.(1)) in;
+                                     ^^
+Error: Syntax error
+Command exited with code 2.
+# Compilation unsuccessful.

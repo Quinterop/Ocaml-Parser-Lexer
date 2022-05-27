@@ -1,1 +1,1 @@
-main.ml: Arith Array Lexer Lexing Printf Sys Token
+main.ml: Array Lexer Lexing Printf Sys Token

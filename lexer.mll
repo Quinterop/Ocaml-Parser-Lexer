@@ -1,12 +1,12 @@
 {
-open Token
+open Parser
+exception Error of string
+exception Lexing_error of string
 }
 
 let symbol = ['a'-'z' 'A'-'Z' '0'-'9']
 
 let space =[' ''\n''\t']+
-
-
 
 rule next_token = parse
 |'(' {LPARE}
@@ -22,5 +22,5 @@ rule next_token = parse
 |symbol as s {SYMBOL(s)}
 |space {next_token lexbuf}
 |eof {EOF}
-|_ {failwith "unexpected symbol"}
+| _ { raise (Error (Lexing.lexeme lexbuf)) }
 
