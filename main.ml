@@ -24,7 +24,7 @@ let transitions b =
 
 let declarations a =
   match a with
-  (b,c,d,e,f) ->print_string "input symbols : "; printcharlist b;print_string "\nstack symbols :"; printcharlist c; print_string "\nstates :"; printcharlist d ; print_char e ; print_char f; print_newline()
+  (b,c,d,e,f) ->print_string "input symbols : "; printcharlist b;print_string   "\nstack symbols :"; printcharlist c; print_string "\nstates :"; printcharlist d ;print_string  "\n initial states :"; print_char e ;print_string "\n initial stack :"; print_char f; print_newline()
 ;;
 
 let rec translists b =
