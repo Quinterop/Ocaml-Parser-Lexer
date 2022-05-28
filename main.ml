@@ -1,5 +1,6 @@
 open Parser
 open Lexer
+open List
 
 let lexbuf = Lexing.from_channel (open_in (Sys.argv.(1)))
 
@@ -10,9 +11,6 @@ let rec printcharlist l =
   |[] ->  ()
   |(a::l) -> print_char a; printcharlist l
 ;;
-
-
-
 
 let transitions b = 
   match b with
@@ -28,53 +26,60 @@ let declarations a =
 ;;
 
 let rec translists b =
-match b with
-|[] ->  ()
-|(a::l) -> transitions a ;print_newline ();translists l
-
-let testauto auto = 
-  match auto with
-  |(a,b) -> declarations a; translists b
+  match b with
+  |[] ->  ()
+  |(a::l) -> transitions a ;print_newline ();translists l
+  
+  let testauto auto = 
+    match auto with
+    |(a,b) -> declarations a; print_string "\ntransitions\n"; translists b
+  ;;
 ;;
-
-
-
-
-
 testauto auto
 
-(*
-  let ch = open_in (Sys.argv.(1)) in
-  let lb = Lexing.from_channel ch in
-  try
-    while true do
-      let t = Lexer.next_token lb
-    in
-    Printf.printf "%s \n" (Token.to_string t);
-    if t=Token.EOF then exit 0
-    done
-with _ ->
-  Printf.printf "Erreur lexicale\n"
-;;
-
-
-
-let tryWord word automat = 
-  match automat with
-  |(a,b) -> let decla = a in
-  match b with
-  | Vide() -> failwith "pas de transition"
-  | Suite(t,l) -> let (a,b,c,d,e) = t in if 
+let explode s =
+  let rec exp i l =
+    if i < 0 then l else exp (i - 1) (s.[i] :: l) in
+    exp (String.length s - 1) []
+  ;;
+  
+  
+  let rec instack (inner : char list) (outer:char list) = 
+    if List.tl inner = List.hd outer then true else false
+  ;;
+(*MARCHE QUE SI INNER.SIZE = 1
+   FIX*)
+  
+  
+  
+  let rec step state letters stack translist = 
+    match letters with
+    |[] -> print_string "mot vide"; print_newline(); true
+    |x::y -> 
+      match translist with
+      |[] -> print_string "no transition"; false
+      |(b::l) -> let (c,d,e,f,g) = b in
+      if c = state then(
+        if d = x then(
+          if instack e stack then ((*TESTER LSTE*)        
+            print_string "transition possible"; 
+      let stack2 =  stack in (*RETIRER e *)
+      step f y (stack2@g) l;
+      )else false
+      )else false
+      )else false
+    ;;
     
-  
-  
-  
-  
-  
-  let lexbuf = Lexing.from_channel stdin 
-  
-  let ast = Parser.input Lexer.main lexbuf 
-  
-  let _ = Printf.printf "Parse:\n%s\n" (Ast.as_string ast)
-  
-  *)
+    
+    
+    let testword2 auto word= 
+    let decla,transL = auto in
+    let (a,b,c,d,e) = decla in
+    let state =d in
+    let stack = e in
+    let charlist = explode word in
+   step state charlist stack transL
+    ;;
+      
+      
+      
